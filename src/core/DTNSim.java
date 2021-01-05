@@ -41,8 +41,6 @@ public class DTNSim {
 	 */
 	public static void main(String[] args) {
 		// For Testing
-		args = new String[]{"C:\\Users\\BenOR\\Dropbox\\University\\Masters\\G54ACN\\Config\\scenario2.txt"};
-
 		boolean batchMode = false;
 		int nrofRuns[] = {0,1};
 		String confFiles[];

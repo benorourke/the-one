@@ -7,10 +7,7 @@ package routing;
 import java.util.ArrayList;
 import java.util.List;
 
-import core.Connection;
-import core.DTNHost;
-import core.Message;
-import core.Settings;
+import core.*;
 
 /**
  * Implementation of Spray and wait router as depicted in
