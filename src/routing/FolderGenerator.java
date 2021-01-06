@@ -4,7 +4,7 @@ import java.io.File;
 
 public class FolderGenerator
 {
-    private static String[] types = {"SnW", "SnW with Sprinklers", "SnF", "SnF with Sprinklers"};
+    private static String[] types = {"Epidemic", "Epidemic with Sprinklers", "SnW", "SnW with Sprinklers", "SnF", "SnF with Sprinklers"};
     private static int reports = 20;
 
     public static void main(String[] args)

@@ -12,10 +12,6 @@ btInterface.type = SimpleBroadcastInterface
 btInterface.transmitSpeed = 312k
 btInterface.transmitRange = 60
 
-backboneInterface.type = SimpleBroadcastInterface
-backboneInterface.transmitSpeed = 100M
-backboneInterface.transmitRange = 10000
-
 #######################################################
 #######################################################
 ## Group Settings
@@ -27,19 +23,16 @@ Group.interface1 = btInterface
 Group.movementModel = ShortestPathMapBasedMovement
 # 20 to 50km/h (50km/h is the general max in Finland)
 Group.speed = 5.6, 13.9
-Group.router = SprayAndWaitRouter
-Group.bufferSize = 75M
-Scenario.nrofHostGroups = 11
+Group.router = EpidemicRouter
+Scenario.nrofHostGroups = 6
 
-SprayAndWaitRouter.binaryMode = true
-SprayAndWaitRouter.nrofCopies = 8
-BlackholeSprayAndWaitRouter.dropProbability = 1.0
+BlackholeEpidemicRouter.dropProbability = 1.0
 
 #######################################################
 # Group-specific Settings
 # PEDESTRIANS
 Group1.groupID = ped
-Group1.nrofHosts = 20
+Group1.nrofHosts = 17
 Group1.bufferSize = 50M
 Group1.okMaps = 1,2,3,4
 # 2 - 4 mp/h (3.5 is the average for a person)
@@ -47,13 +40,13 @@ Group1.speed = 0.9, 1.8
 
 # CARS
 Group2.groupID = car
-Group2.nrofHosts = 60
+Group2.nrofHosts = 51
 Group2.okMaps = 2,3,4
 Group2.waitTime = 10, 50
 
 # BUSES ( 2 individual groups, 5 of each; taking different routes)
 Group3.groupID = bus1
-Group3.nrofHosts = 5
+Group3.nrofHosts = 4
 Group3.movementModel = MapRouteMovement
 Group3.routeFile = data/HelsinkiMedium/A_bus.wkt
 Group3.routeType = 1
@@ -61,70 +54,28 @@ Group3.waitTime = 5, 40
 
 Group4.groupID = bus2
 Group4.movementModel = MapRouteMovement
-Group4.nrofHosts = 5
+Group4.nrofHosts = 4
 Group4.routeFile = data/demo_bus.wkt
 Group4.routeType = 1
 Group4.waitTime = 5, 40
 
 # TAXIS
 Group5.groupID = taxis
-Group5.nrofHosts = 10
+Group5.nrofHosts = 9
 Group5.okMaps = 2,3,4
 Group5.waitTime = 20, 120
 
 # Blackhole
 Group6.groupID = bh
-Group6.nrofHosts = 0
+Group6.nrofHosts = 15
 Group6.okMaps = 2,3,4
-Group6.router = BlackholeSprayAndWaitRouter
-
-# Information Sprinklers:
-Group7.groupID = ISA
-Group7.nrofHosts = 1
-Group7.nodeLocation = 2302, 2364
-Group7.movementModel = StationaryMovement
-Group7.nrofInterfaces = 2
-Group7.interface1 = btInterface
-Group7.interface2 = backboneInterface
-Group7.bufferSize = 1000M
-
-Group8.groupID = ISB
-Group8.nrofHosts = 1
-Group8.nodeLocation = 3369, 1155
-Group8.movementModel = StationaryMovement
-Group8.nrofInterfaces = 2
-Group8.interface2 = backboneInterface
-Group8.bufferSize = 1000M
-
-Group9.groupID = ISC
-Group9.nrofHosts = 1
-Group9.nodeLocation = 1161, 1753
-Group9.movementModel = StationaryMovement
-Group9.nrofInterfaces = 2
-Group9.interface2 = backboneInterface
-Group9.bufferSize = 1000M
-
-Group10.groupID = ISD
-Group10.nrofHosts = 1
-Group10.nodeLocation = 1249, 620
-Group10.movementModel = StationaryMovement
-Group10.nrofInterfaces = 2
-Group10.interface2 = backboneInterface
-Group10.bufferSize = 1000M
-
-Group11.groupID = ISE
-Group11.nrofHosts = 1
-Group11.nodeLocation = 2653, 535
-Group11.movementModel = StationaryMovement
-Group11.nrofInterfaces = 2
-Group11.interface2 = backboneInterface
-Group11.bufferSize = 1000M
+Group6.router = BlackholeEpidemicRouter
 
 #######################################################
 #######################################################
 ## Message Settings
 # 0 to n - 1 where n is the total number of hosts
-Events1.hosts = 0,104
+Events1.hosts = 0,99
 ## Message creation parameters
 # How many event generators
 Events.nrof = 1
@@ -155,9 +106,9 @@ Optimization.randomizeUpdateOrder = true
 #######################################################
 #######################################################
 ## Report Settings
-Report.nrofReports = 4
+Report.nrofReports = 1
 Report.reportDir = reports/
-Report.report1 = DeliveredMessagesReport
-Report.report2 = CreatedMessagesReport
-Report.report3 = MessageStatsReport
-Report.report4 = BufferOccupancyReport
+#Report.report1 = DeliveredMessagesReport
+#Report.report2 = CreatedMessagesReport
+Report.report1 = MessageStatsReport
+#Report.report4 = BufferOccupancyReport
