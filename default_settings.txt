@@ -12,6 +12,10 @@ btInterface.type = SimpleBroadcastInterface
 btInterface.transmitSpeed = 312k
 btInterface.transmitRange = 60
 
+backboneInterface.type = SimpleBroadcastInterface
+backboneInterface.transmitSpeed = 100M
+backboneInterface.transmitRange = 10000
+
 #######################################################
 #######################################################
 ## Group Settings
@@ -24,7 +28,8 @@ Group.movementModel = ShortestPathMapBasedMovement
 # 20 to 50km/h (50km/h is the general max in Finland)
 Group.speed = 5.6, 13.9
 Group.router = SprayAndWaitRouter
-Scenario.nrofHostGroups = 6
+Group.bufferSize = 75M
+Scenario.nrofHostGroups = 11
 
 SprayAndWaitRouter.binaryMode = true
 SprayAndWaitRouter.nrofCopies = 8
@@ -73,11 +78,53 @@ Group6.nrofHosts = 0
 Group6.okMaps = 2,3,4
 Group6.router = BlackholeSprayAndWaitRouter
 
+# Information Sprinklers:
+Group7.groupID = ISA
+Group7.nrofHosts = 1
+Group7.nodeLocation = 2302, 2364
+Group7.movementModel = StationaryMovement
+Group7.nrofInterfaces = 2
+Group7.interface1 = btInterface
+Group7.interface2 = backboneInterface
+Group7.bufferSize = 1000M
+
+Group8.groupID = ISB
+Group8.nrofHosts = 1
+Group8.nodeLocation = 3369, 1155
+Group8.movementModel = StationaryMovement
+Group8.nrofInterfaces = 2
+Group8.interface2 = backboneInterface
+Group8.bufferSize = 1000M
+
+Group9.groupID = ISC
+Group9.nrofHosts = 1
+Group9.nodeLocation = 1161, 1753
+Group9.movementModel = StationaryMovement
+Group9.nrofInterfaces = 2
+Group9.interface2 = backboneInterface
+Group9.bufferSize = 1000M
+
+Group10.groupID = ISD
+Group10.nrofHosts = 1
+Group10.nodeLocation = 1249, 620
+Group10.movementModel = StationaryMovement
+Group10.nrofInterfaces = 2
+Group10.interface2 = backboneInterface
+Group10.bufferSize = 1000M
+
+Group11.groupID = ISE
+Group11.nrofHosts = 1
+Group11.nodeLocation = 2653, 535
+Group11.movementModel = StationaryMovement
+Group11.nrofInterfaces = 2
+Group11.interface2 = backboneInterface
+Group11.bufferSize = 1000M
+
 #######################################################
 #######################################################
 ## Message Settings
 # 0 to n - 1 where n is the total number of hosts
-Events1.hosts = 0,99
+Events1.hosts = 0,104
 ## Message creation parameters
 # How many event generators
 Events.nrof = 1

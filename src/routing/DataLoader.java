@@ -14,7 +14,8 @@ import java.util.Map;
 
 public class DataLoader
 {
-    private static String[] scenarioNames = {"SnW"/*, "SnW with Sprinklers", "SnF", "SnF with Sprinklers"*/};
+    private static String[] scenarioNames = {"SnW", "SnF"};
+//    private static String[] scenarioNames = {/*"SnW"*//*, "SnW with Sprinklers",*/ "SnF", /*"SnF with Sprinklers"*/};
     private static int reports = 20;
     private static String dir = "C:\\Users\\BenOR\\Dropbox\\University\\Masters\\G54ACN\\Config\\Results\\%TYPE%\\%NUM%";
     private static String fileName = "Scenario1_MessageStatsReport.txt";
